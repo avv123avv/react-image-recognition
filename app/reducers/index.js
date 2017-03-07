@@ -3,9 +3,11 @@ import { routerReducer as routing } from 'react-router-redux';
 // import user from './user';
 // import topic from './topic';
 // import message from './message';
-import * as types from '../types';
-import init from './initReducer';
-import camera from './cameraReducer';
+import * as types               from '../types';
+import init                     from './initReducer';
+import camera                   from './cameraReducer';
+import cloudimage               from './cloudimageReducer';
+import imagerecognition         from './imageRecognitionReducer';
 
 const isFetching = (state = false, action) => {
   switch (action.type) {
@@ -25,7 +27,9 @@ const rootReducer = combineReducers({
     isFetching,
     init,
     routing,
-    camera
+    camera,
+    cloudimage,
+    imagerecognition
 });
 
 export default rootReducer;

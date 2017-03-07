@@ -31,20 +31,20 @@ module.exports = ({ production = false, browser = false } = {}) => {
       options: {
         localIndentName,
         sourceMap: true,
-        modules: true,
+        modules: false,
         importLoaders: 1
       }
     },
-    {
-      loader: 'postcss-loader',
-      options: {
-        plugins: [
-          postcssImport({ path: path.resolve(PATHS.app, './css') }),
-          postcssCssnext({ browsers: ['> 1%', 'last 2 versions'] }),
-          postcssReporter({ clearMessages: true })
-        ]
-      }
-    }
+    // {
+    //   loader: 'postcss-loader',
+    //   options: {
+    //     plugins: [
+    //       postcssImport({ path: path.resolve(PATHS.app, './css') }),
+    //       postcssCssnext({ browsers: ['> 1%', 'last 2 versions'] }),
+    //       postcssReporter({ clearMessages: true })
+    //     ]
+    //   }
+    // }
   ]);
 
   const createBrowserLoaders = extractCssToFile => loaders => {

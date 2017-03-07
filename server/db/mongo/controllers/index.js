@@ -1,9 +1,9 @@
-import topics from './topics';
-import users from './users';
+import imageCloud           from './imageCloud';
+import imageRecognition     from './imageRecognition';
 
-export { topics, users };
+export { imageCloud, imageRecognition };
 
 export default {
-  topics,
-  users
+    imageCloud,
+    imageRecognition
 };
