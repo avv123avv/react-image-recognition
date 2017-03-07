@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames/bind';
-import Navigation from '../containers/Navigation';
-import Message from '../containers/Message';
-import styles from '../css/main';
+import Grid  from 'react-bootstrap/lib/Grid';
 
-const cx = classNames.bind(styles);
+// import Navigation from '../containers/Navigation';
+// import Message from '../containers/Message';
+// import styles from '../css/main';
+
+// const cx = classNames.bind(styles);
 
 
 /*
@@ -18,11 +20,11 @@ const cx = classNames.bind(styles);
  */
 const App = ({children}) => {
   return (
-    <div className={cx('app')}>
-      <Navigation />
-      <Message />
+    <Grid>
+        {/*<Navigation />
+      <Message />*/}
         {children}
-    </div>
+    </Grid>
   );
 };
 

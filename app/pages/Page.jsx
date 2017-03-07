@@ -1,12 +1,15 @@
-import React, { PropTypes } from 'react';
-import Helmet from 'react-helmet';
+import React, { PropTypes }   from 'react';
+import Grid                   from 'react-bootstrap/lib/Grid';
+import Helmet                 from 'react-helmet';
+
+import '../css/bootstrap.css';
 
 const Page = ({ title, link, meta, children }) => {
   return (
-    <div>
+    <Grid>
       <Helmet title={title} link={link} meta={meta} />
       { children }
-    </div>
+    </Grid>
   );
 };
 

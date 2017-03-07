@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import * as types from '../types';
-
+import * as types from '../../types';
 const topic = (
   state = {},
   action

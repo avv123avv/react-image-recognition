@@ -68,7 +68,7 @@ module.exports = (env = '') => {
       filename: '[name].js',
       publicPath: PATHS.public
     },
-    module: { rules: rules({ production: false, browser: true }) },
+    module: { rules: rules({ production: false, browser: true}) },
     resolve,
     plugins: plugins({ production: false, browser: true })
   };
