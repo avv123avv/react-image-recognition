@@ -24,8 +24,8 @@ export default class SerialNumberCropper extends Component {
                         aspectRatio={16 / 9}
                         guides={false}/>
                     <ButtonToolbar>
-                        <Button onClick={()=>this.props.retakeImage()}>RETAKE IMAGE</Button>
-                        <Button onClick={()=>this.props.goToProcessing(this.refs.cropper)}>NEXT</Button>
+                        <Button bsSize="large" onClick={()=>this.props.retakeImage()}>RETAKE IMAGE</Button>
+                        <Button bsSize="large" onClick={()=>this.props.goToProcessing(this.refs.cropper)}>NEXT</Button>
                     </ButtonToolbar>
                 </Col>
             </Row>

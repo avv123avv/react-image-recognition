@@ -1,14 +1,19 @@
 import { polyfill } from 'es6-promise';
-import request from 'axios';
+import request      from 'axios';
 
-export const UPLOADED_IMAGE     = 'UPLOAD_IMAGE';
-export const RESET_IMAGE        = 'RESET_IMAGE';
+export const UPLOADED_IMAGE             = 'UPLOAD_IMAGE';
+export const UPLOADED_IMAGE_CROPPED     = 'UPLOADED_IMAGE_CROPPED';
+export const RESET_IMAGE                = 'RESET_IMAGE';
 
 polyfill();
 
 
 export function setUploadedImage(image) {
     return {type: UPLOADED_IMAGE, image: image};
+}
+
+export function setUploadedImageCropped(image) {
+    return {type: UPLOADED_IMAGE_CROPPED, image: image};
 }
 
 export function resetImage() {
@@ -20,6 +25,17 @@ export function uploadImage(dispatch, image) {
         .then((result) => {
             if (result.status === 200 && result.data.result) {
                 return dispatch(setUploadedImage(result.data.result));
+            }
+        })
+        .catch((e) => { console.error(e)});
+
+}
+
+export function uploadImageCropped(dispatch, image) {
+    return makeCloudImageRequest({method:'post', data: {image:image}, api:'/uploadImage'})
+        .then((result) => {
+            if (result.status === 200 && result.data.result) {
+                return dispatch(setUploadedImageCropped(result.data.result));
             }
         })
         .catch((e) => { console.error(e)});

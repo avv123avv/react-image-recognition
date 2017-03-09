@@ -11,5 +11,5 @@ export function makeSerialNumberCrop(croppedPhoto) {
 }
 
 export function resetCamera() {
-    return {type: RESET_CAMERA, photo: photo};
+    return {type: RESET_CAMERA};
 }

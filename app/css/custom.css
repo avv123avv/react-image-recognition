@@ -30,3 +30,11 @@
     -webkit-filter: blur(1px);
     filter: blur(1px);
 }
+
+.btn-toolbar {
+    text-align: center;
+}
+
+.btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group {
+    float: none;
+}

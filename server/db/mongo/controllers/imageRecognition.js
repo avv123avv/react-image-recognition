@@ -31,7 +31,7 @@ export function recognizeImage(req, res) {
                        description = obj.description;
                 });
             }
-            console.log('ocr',description);
+            // console.log('ocr',description);
             return res.json({
                 result:description,
                 status:200

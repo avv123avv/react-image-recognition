@@ -1,13 +1,11 @@
-import { combineReducers } from 'redux';
-import { routerReducer as routing } from 'react-router-redux';
-// import user from './user';
-// import topic from './topic';
-// import message from './message';
-import * as types               from '../types';
-import init                     from './initReducer';
-import camera                   from './cameraReducer';
-import cloudimage               from './cloudimageReducer';
-import imagerecognition         from './imageRecognitionReducer';
+import { combineReducers }              from 'redux';
+import { routerReducer as routing }     from 'react-router-redux';
+
+import * as types                       from '../types';
+import init                             from './initReducer';
+import camera                           from './cameraReducer';
+import cloudimage                       from './cloudimageReducer';
+import imagerecognition                 from './imageRecognitionReducer';
 
 const isFetching = (state = false, action) => {
   switch (action.type) {

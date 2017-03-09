@@ -11,7 +11,7 @@ export default class Image extends Component {
         return (
             <Row>
                 <Col md={12} style={{textAlign:"center"}}>
-                    <h1 style={{textAlign:"center"}}>PROCESSING ...</h1>
+                    <h1>PROCESSING ...</h1>
                     <ReactSpinner size={140} borderColor='#f2f0f0' borderTopColor='#e60000'>Example</ReactSpinner>
                 </Col>
             </Row>

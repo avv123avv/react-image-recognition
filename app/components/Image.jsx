@@ -13,8 +13,8 @@ export default class Image extends Component {
                     <h1 style={{textAlign:"center"}}>IS IT GOOD ENOUGH</h1>
                     <img src={image} />
                     <ButtonToolbar>
-                        <Button onClick={()=>this.props.retakeImage()}>RETAKE IMAGE</Button>
-                        <Button onClick={()=>this.props.goToCrop()}>NEXT</Button>
+                        <Button bsSize="large" onClick={()=>this.props.retakeImage()}>RETAKE IMAGE</Button>
+                        <Button bsSize="large" onClick={()=>this.props.goToCrop()}>NEXT</Button>
                     </ButtonToolbar>
                 </Col>
             </Row>

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import classNames from 'classnames/bind';
+import React, { Component }     from 'react';
+import classNames               from 'classnames/bind';
 
 import {Col, Row} from 'react-bootstrap';
 

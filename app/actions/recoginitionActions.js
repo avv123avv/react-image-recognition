@@ -1,5 +1,5 @@
-import { polyfill } from 'es6-promise';
-import request from 'axios';
+import { polyfill }     from 'es6-promise';
+import request          from 'axios';
 
 export const SET_SERIAL_NUMBER     = 'SET_SERIAL_NUMBER';
 export const RESET_SERIAL_NUMBER   = 'RESET_SERIAL_NUMBER';

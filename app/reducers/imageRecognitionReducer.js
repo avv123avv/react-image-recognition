@@ -2,7 +2,7 @@ import { SET_SERIAL_NUMBER, RESET_SERIAL_NUMBER
 }         from '../actions/recoginitionActions';
 
 const initialState = {
-    number: {}
+    number: ""
 };
 
 export default function(state = initialState, action) {

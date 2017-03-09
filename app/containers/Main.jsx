@@ -24,7 +24,6 @@ class Main extends Component {
     }
 
     showCamera = () => {
-        console.log('Show camera');
         this.props.dispatch(initActions.updateStep(2));
     }
 
@@ -44,31 +43,39 @@ class Main extends Component {
     goToProcessing = (cropper) => {
         let image = cropper.getCroppedCanvas().toDataURL();
         this.props.dispatch(cameraActions.makeSerialNumberCrop(image));
-        //@todo return after debug
-        cloudimageActions.uploadImage(this.props.dispatch, image)
-            .then((result)=>{
-                recoginitionActions.recognizeImage(this.props.dispatch, result.image)
-                .then((result)=> {
-                    this.props.dispatch(initActions.updateStep(6))
+        cloudimageActions.uploadImage(this.props.dispatch, this.props.camera.photo)
+            .then(()=> {
+                cloudimageActions.uploadImageCropped(this.props.dispatch, image)
+                    .then((result) => {
+                        recoginitionActions.recognizeImage(this.props.dispatch, result.image)
+                            .then((result) => {
+                                this.props.dispatch(initActions.updateStep(6));
+                            });
+                    });
             });
-        });
         this.props.dispatch(initActions.updateStep(5));
     }
 
-    wrongResult = () => {
-
-    }
-
-    goodResult = () => {
+    goodResult = (feedback = false) => {
         let objSave = {
-
+            originalImageUrl        : this.props.cloudimage.image.secure_url,
+            serialNumberImageUrl    : this.props.cloudimage.image_cropped.secure_url,
+            serialNumber            : this.props.imagerecognition.number,
+            referenceNumber         : "",
+            userFeedback            : feedback
         };
         cloudimageActions.createImageResult(this.props.dispatch, objSave)
             .then((result)=>{
-                //@todo add last logic
-                //this.props.dispatch(recoginitionActions.resetSerialNumber());
                 this.props.dispatch(initActions.updateStep(7))
             });
+    }
+
+    restart = () => {
+        this.props.dispatch(recoginitionActions.resetSerialNumber());
+        this.props.dispatch(cloudimageActions.resetImage());
+        this.props.dispatch(cameraActions.resetCamera());
+        this.props.dispatch(initActions.initApplication());
+        this.props.dispatch(initActions.updateStep(1))
     }
 
     showStep() {
@@ -80,7 +87,7 @@ class Main extends Component {
                             <h1>CAPTURE THE BACK OF YOUR WATCH</h1>
                             <img src={Bg} />
                             <ButtonToolbar>
-                                <Button onClick={()=>this.showCamera()}>Open Camera</Button>
+                                <Button bsSize="large" onClick={()=>this.showCamera()}>Open Camera</Button>
                             </ButtonToolbar>
                         </Col>
                     </Row>
@@ -95,7 +102,7 @@ class Main extends Component {
                                 width="100%"
                                 ref='webcam'/>
                             <ButtonToolbar>
-                                <Button onClick={()=>this.makePhoto()}>Make photo</Button>
+                                <Button bsSize="large" onClick={()=>this.makePhoto()}>Make photo</Button>
                             </ButtonToolbar>
                         </Col>
                     </Row>
@@ -123,21 +130,22 @@ class Main extends Component {
             case 6:
                 return (
                     <Result
-                        wrongResult={()=>this.wrongResult()}
-                        goodResult={()=>this.goodResult()}
+                        wrongResult={()=>this.goodResult(false)}
+                        goodResult={()=>this.goodResult(true)}
                         img={this.props.camera.photo}
                         serialNumber={this.props.imagerecognition.number}
                     />
                 );
             case 7:
                 return (
-                    <div></div>
+                    <Result
+                        restart={()=>this.restart()}
+                    />
                 )
         }
     }
 
     render() {
-        console.log('Main this.props', this.props);
         return (
             <div>
                 <Header />

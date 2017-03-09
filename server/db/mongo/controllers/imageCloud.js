@@ -19,7 +19,7 @@ export function uploadImage(req, res) {
             ...cloudinaryConfig
         });
         cloudinaryUpload(req.body.image).then((result) => {
-            console.log('UploadImage result', result);
+            // console.log('UploadImage result', result);
 
             return res.json({
                 result:result,
@@ -49,7 +49,8 @@ function cloudinaryUpload(image) {
  * @param res
  */
 export function createImageResult(req, res) {
-    Image.create(req.body, (e) => {
+    // console.log('createImageResult', req.body);
+    Image.create(req.body.image, (e) => {
         if (e) {
             console.log(e);
             return res.status(400).send(e);

@@ -11,6 +11,7 @@ const ImageSchema = new mongoose.Schema({
     serialNumberImageUrl    : String,
     serialNumber            : String,
     referenceNumber         : String,
+    userFeedback            : Boolean,
     createdAt               : { type: Date, default: Date.now }
 });
 
