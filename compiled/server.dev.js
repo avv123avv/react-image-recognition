@@ -10745,14 +10745,14 @@ var Image = function (_Component) {
                         null,
                         _react2.default.createElement(
                             _reactBootstrap.Button,
-                            { onClick: function onClick() {
+                            { bsSize: 'large', onClick: function onClick() {
                                     return _this2.props.retakeImage();
                                 } },
                             'RETAKE IMAGE'
                         ),
                         _react2.default.createElement(
                             _reactBootstrap.Button,
-                            { onClick: function onClick() {
+                            { bsSize: 'large', onClick: function onClick() {
                                     return _this2.props.goToCrop();
                                 } },
                             'NEXT'
@@ -10908,7 +10908,7 @@ var Result = function (_Component) {
                     null,
                     _react2.default.createElement(
                         _reactBootstrap.Button,
-                        { onClick: function onClick() {
+                        { bsSize: 'large', onClick: function onClick() {
                                 return _this2.props.restart();
                             } },
                         'RESTART'
@@ -10924,14 +10924,14 @@ var Result = function (_Component) {
                     null,
                     _react2.default.createElement(
                         _reactBootstrap.Button,
-                        { onClick: function onClick() {
+                        { bsSize: 'large', onClick: function onClick() {
                                 return _this2.props.wrongResult();
                             } },
                         'WRONG'
                     ),
                     _react2.default.createElement(
                         _reactBootstrap.Button,
-                        { onClick: function onClick() {
+                        { bsSize: 'large', onClick: function onClick() {
                                 return _this2.props.goodResult();
                             } },
                         'APPROVE'
@@ -11063,14 +11063,14 @@ var SerialNumberCropper = function (_Component) {
                         null,
                         _react2.default.createElement(
                             _reactBootstrap.Button,
-                            { onClick: function onClick() {
+                            { bsSize: 'large', onClick: function onClick() {
                                     return _this2.props.retakeImage();
                                 } },
                             'RETAKE IMAGE'
                         ),
                         _react2.default.createElement(
                             _reactBootstrap.Button,
-                            { onClick: function onClick() {
+                            { bsSize: 'large', onClick: function onClick() {
                                     return _this2.props.goToProcessing(_this2.refs.cropper);
                                 } },
                             'NEXT'
@@ -11370,7 +11370,7 @@ var Main = function (_Component) {
                                 null,
                                 _react2.default.createElement(
                                     _reactBootstrap.Button,
-                                    { onClick: function onClick() {
+                                    { bsSize: 'large', onClick: function onClick() {
                                             return _this2.showCamera();
                                         } },
                                     'Open Camera'
@@ -11395,7 +11395,7 @@ var Main = function (_Component) {
                                 null,
                                 _react2.default.createElement(
                                     _reactBootstrap.Button,
-                                    { onClick: function onClick() {
+                                    { bsSize: 'large', onClick: function onClick() {
                                             return _this2.makePhoto();
                                         } },
                                     'Make photo'

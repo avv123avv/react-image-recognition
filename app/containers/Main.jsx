@@ -139,6 +139,7 @@ class Main extends Component {
             case 7:
                 return (
                     <Result
+                        serialNumber={this.props.imagerecognition.number}
                         restart={()=>this.restart()}
                     />
                 )

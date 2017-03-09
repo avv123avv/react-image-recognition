@@ -1,7 +1,7 @@
 const cloudinaryConfig = {
-    cloud_name: '',
-    api_key: '',
-    api_secret: ''
+    cloud_name: 'dufbvdilf',
+    api_key: '228766949911837',
+    api_secret: 'wEJMpy9c_EoIFNx7MY_DezJiMkA'
 };
 
 export default cloudinaryConfig;
