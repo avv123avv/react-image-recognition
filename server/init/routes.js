@@ -28,8 +28,8 @@ export default (app) => {
 
     // imagesUploader
     app.use('/static', express.static('./server/static'));
-    app.post('/notmultiple', imagesUpload(
+    app.post('/notmultiple',     imagesUpload(
         './server/static/files',
-        'https://localhost:3000/static/files'
+        '/static/files'
     ));
 };
