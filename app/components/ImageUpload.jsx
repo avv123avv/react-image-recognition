@@ -8,8 +8,16 @@ import '../css/components/uploader.css';
 
 export default class ImageUpload extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            showNext: false
+        }
+    }
+
     render() {
-        let image = this.props.img || null;
+        let image       = this.props.img || null;
+
         return (
             <Row>
                 <Col md={12} style={{textAlign:"center"}}>
@@ -18,20 +26,22 @@ export default class ImageUpload extends Component {
                     <br></br>
                     <img src={image} />
                     <ImagesUploader
-                        url="https://localhost:3000/notmultiple"
+                        url={"/notmultiple"}
                         multiple={false}
                         optimisticPreviews={true}
                         onLoadEnd={(err,response) => {
                             if (err) {
                                 console.error(err);
                             } else {
+                                this.setState({showNext:true});
                                 this.props.uploadImageFunc(response);
                             }
                         }}
+                        deleteImage={()=>this.setState({showNext:false})}
                     />
-                    <ButtonToolbar>
+                    {this.state.showNext && <ButtonToolbar>
                         <Button bsSize="large" onClick={()=>this.props.goToCrop()}>NEXT</Button>
-                    </ButtonToolbar>
+                    </ButtonToolbar>}
                 </Col>
             </Row>
         );
