@@ -1,6 +1,8 @@
 import cloudinary           from 'cloudinary';
 import { polyfill }         from 'es6-promise';
 import cloudinaryConfig     from '../config/cloudinaryConfig';
+import Validator            from 'validator';
+import fs                   from 'fs';
 
 import Image                from '../models/image';
 
@@ -18,15 +20,21 @@ export function uploadImage(req, res) {
         cloudinary.config({
             ...cloudinaryConfig
         });
-        cloudinaryUpload(req.body.image).then((result) => {
+
+        let image = req.body.image;
+
+        if(!Validator.isBase64(image.replace('data:image/png;base64,', '')))
+            image = './server' + image;
+
+        cloudinaryUpload(image).then((result) => {
             // console.log('UploadImage result', result);
 
             return res.json({
-                result:result,
-                status:200
+                result: result,
+                status: 200
             });
         })
-        .catch((e)=>{
+        .catch((e) => {
             res.status(500).json(e);
         })
     } else

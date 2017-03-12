@@ -76,6 +76,7 @@
     "express-session": "^1.14.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.9.0",
+    "filereader": "^0.10.3",
     "fs": "0.0.1-security",
     "helmet": "^2.1.2",
     "images-upload-middleware": "^1.1.1",
@@ -117,6 +118,7 @@
     "spark-md5": "^2.0.2",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
+    "validator": "^7.0.0",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.14.0"
