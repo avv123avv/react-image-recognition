@@ -21,7 +21,6 @@ export default class SerialNumberCropper extends Component {
                         ref='cropper'
                         src={image}
                         style={{height: '100%', width: '100%'}}
-
                         guides={false}/>
                     <ButtonToolbar>
                         <Button bsSize="large" onClick={()=>this.props.retakeImage()}>RETAKE IMAGE</Button>
