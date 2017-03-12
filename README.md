@@ -12,9 +12,11 @@ server/db/mongo/config/cognitiveVisionOcrConfig.js
 
 4) npm run dev
 
-5) Open http://localhost:3000/
+5) Create folder server/static/files
 
-6) In the PC to test just turn on "Responsive mode and choose any mobile device"
+6) Open http://localhost:3000/
+
+7) In the PC to test just turn on "Responsive mode and choose any mobile device"
 
 ================================================================
 
