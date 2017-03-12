@@ -30,6 +30,6 @@ export default (app) => {
     app.use('/static', express.static('./server/static'));
     app.post('/notmultiple', imagesUpload(
         './server/static/files',
-        'http://localhost:3000/static/files'
+        'https://localhost:3000/static/files'
     ));
 };

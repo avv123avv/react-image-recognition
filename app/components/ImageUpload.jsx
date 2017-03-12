@@ -18,7 +18,7 @@ export default class ImageUpload extends Component {
                     <br></br>
                     <img src={image} />
                     <ImagesUploader
-                        url="http://localhost:3000/notmultiple"
+                        url="https://localhost:3000/notmultiple"
                         multiple={false}
                         optimisticPreviews={true}
                         onLoadEnd={(err,response) => {
