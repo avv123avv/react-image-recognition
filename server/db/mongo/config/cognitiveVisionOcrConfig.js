@@ -1,5 +1,5 @@
 const cognitiveVisionOcrConfig = {
-    key: 'd13de8363cf041739813c2254c8709a8'
+    key: 'ad389c309a5147fdbedc4276f8a7f5f0'
 };
 
 export default cognitiveVisionOcrConfig;
