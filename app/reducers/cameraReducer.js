@@ -1,8 +1,9 @@
 import { RESET_CAMERA, MAKE_SERIAL_NUMBER_CROP,
-    MAKE_PHOTO}         from '../actions/cameraActions';
+    MAKE_PHOTO, UPLOAD_IMAGE}         from '../actions/cameraActions';
 
 const initialState = {
     showCamera                  : false,
+    uploadImage                 : false,
     photo                       : {},
     croppedSerialNumberPhoto    : {}
 };
@@ -13,6 +14,9 @@ export default function(state = initialState, action) {
             return Object.assign({...initialState});
         case MAKE_SERIAL_NUMBER_CROP:
             state.croppedSerialNumberPhoto = action.croppedPhoto;
+            return Object.assign({...state});
+        case UPLOAD_IMAGE:
+            state.uploadImage = true;
             return Object.assign({...state});
         case MAKE_PHOTO:
             state.photo = action.photo;

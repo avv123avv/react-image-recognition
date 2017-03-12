@@ -10,6 +10,7 @@ import * as recoginitionActions             from '../actions/recoginitionActions
 
 import Header                               from '../components/Header';
 import Image                                from '../components/Image';
+import ImageUpload                          from '../components/ImageUpload';
 import SerialNumberCropper                  from '../components/SerialNumberCropper';
 import Spinner                              from '../components/Spinner';
 import Result                               from '../components/Result';
@@ -27,13 +28,25 @@ class Main extends Component {
         this.props.dispatch(initActions.updateStep(2));
     }
 
+    uploadImage = () => {
+        this.props.dispatch(initActions.updateStep(8));
+    }
+
+    uploadImageFunc = (response) => {
+        this.props.dispatch(cameraActions.makePhoto(response));
+        this.props.dispatch(cameraActions.uploadImage());
+    }
+
     makePhoto = () => {
         this.props.dispatch(cameraActions.makePhoto(this.refs.webcam.getScreenshot()));
         this.props.dispatch(initActions.updateStep(3));
     }
 
     retakeImage = () => {
-        this.props.dispatch(initActions.updateStep(2));
+        if(this.props.camera.uploadImage)
+            this.props.dispatch(initActions.updateStep(8));
+        else
+            this.props.dispatch(initActions.updateStep(2));
     }
 
     goToCrop = () => {
@@ -87,6 +100,7 @@ class Main extends Component {
                             <h1>CAPTURE THE BACK OF YOUR WATCH</h1>
                             <img src={Bg} />
                             <ButtonToolbar>
+                                <Button bsSize="large" onClick={()=>this.uploadImage()}>Upload Image</Button>
                                 <Button bsSize="large" onClick={()=>this.showCamera()}>Open Camera</Button>
                             </ButtonToolbar>
                         </Col>
@@ -142,6 +156,12 @@ class Main extends Component {
                         serialNumber={this.props.imagerecognition.number}
                         restart={()=>this.restart()}
                     />
+                )
+            case 8:
+                return (
+                    <ImageUpload
+                        uploadImageFunc={(response=>this.uploadImageFunc(response))}
+                        goToCrop={()=>this.goToCrop()}/>
                 )
         }
     }
