@@ -58,7 +58,7 @@ module.exports = ({ production = false, browser = false } = {}) => {
   };
 
   const serverLoaders = createCssLoaders(false);
-  const browserLoaders = createBrowserLoaders(production)(createCssLoaders(true));
+  const browserLoaders = createBrowserLoaders(false)(createCssLoaders(true));
 
   return {
     test: /\.css$/,
