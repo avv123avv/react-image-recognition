@@ -14,6 +14,7 @@ polyfill();
  */
 export function recognizeImage(req, res) {
     if(req.body.image && req.body.image.secure_url) {
+        console.log('cognitiveVisionOcrConfig.key',cognitiveVisionOcrConfig.key);
         ocr({
             key:        cognitiveVisionOcrConfig.key,
             image:      req.body.image.secure_url,

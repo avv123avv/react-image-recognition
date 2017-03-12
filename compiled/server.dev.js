@@ -12368,7 +12368,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var cognitiveVisionOcrConfig = {
-    key: 'd13de8363cf041739813c2254c8709a8'
+    key: '804b9dafa6bb4019855dd1884a88d427'
 };
 
 exports.default = cognitiveVisionOcrConfig;
@@ -12557,6 +12557,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 function recognizeImage(req, res) {
     if (req.body.image && req.body.image.secure_url) {
+        console.log('cognitiveVisionOcrConfig.key', _cognitiveVisionOcrConfig2.default.key);
         (0, _cognitiveVisionOcr2.default)({
             key: _cognitiveVisionOcrConfig2.default.key,
             image: req.body.image.secure_url,
